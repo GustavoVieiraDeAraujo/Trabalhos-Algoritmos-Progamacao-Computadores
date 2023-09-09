@@ -31,7 +31,7 @@ def nomeExiste(nome):
     if len(arquivos_lidos) > 1:
         juncaoDeArquivos()
         for line in leia("juncaoArquivos.csv"):
-            if nome in line[4]:
+            if nome == separarNomeCargaHoraria(line)[0]:
                 return True
         return False
     else:
@@ -39,9 +39,9 @@ def nomeExiste(nome):
             return False
         else:
             for line in leia(arquivos_lidos[-1]):
-                if nome in line[4]:
+                if nome == separarNomeCargaHoraria(line)[0]:
                     return True
-            return False    
+            return False
 
 def juntarTurmasComunsDaMesmaMateria(infDoDocente):
     fimDoWhile = len(infDoDocente)
